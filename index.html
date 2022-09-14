@@ -6,91 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
     <link rel="stylesheet" href="">
+    <script src="Style.js" defer></script>
  
 </head>
 
 <body>
     
-    <button id="btn">Change number of squares per grid</button>
+   
 
-
-    <div class="container">
-
-
-
-
-
-
-    </div>
-
+    <div class="header"></div>
+    <div class="container"> </div>
+    <div class="footer"></div>
 
 </body>
 
-<script>
-
-
-const container = document.querySelector('.container');
-
-let rows = 16;
-let columns = 16;
-
-
-for (let i = 0; i < rows*columns; i++) {
-
-   
-   
-    
-        const div = document.createElement('div');
-        div.classList.add('square');
-      
-        
-
-        
-
-
-    container.appendChild(div)
-
-
-
-}
-
-
-
-const squares = document.querySelectorAll('.square');
-
-squares.forEach((square) => { 
-    
-    
-    
-    square.addEventListener('mouseenter',  () => {
-
-        console.log('entered');
-        square.classList.add('entered');
-
-    })
-
- 
-
-
-
-
-
-});
-
-
-
-
-
-
-    
-</script>
 
 <style>
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box }
 
 body {
 
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     
 
 }
@@ -98,10 +40,8 @@ body {
 .square {
 
 
-  width: 25px;
-  height: 25px;
+ aspect-ratio: 1/1;
   
-
   
    
 
@@ -109,9 +49,10 @@ body {
 .container {
 
    display: grid; 
-   grid-template-columns: repeat(16,1.5rem);
-   border: solid;
-   gap:0.05px;
+   width: 600px;
+   height: 600px;
+   border: solid 1px;
+   
    
 
    
