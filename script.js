@@ -3,17 +3,13 @@ const container = document.querySelector('.container');
 const btn = document.querySelector('#btn');
 const clear = document.querySelector('#clear');
 const color = document.querySelector('#color');
-const colorPicker = document.getElementById('colorPicker');
+const colorPicker = document.querySelector('#colorPicker');
 let currentColor = '#00ffff';
 let numberOfSquaresOnOneSide = 16;
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-colorPicker.oninput = (e) => setCurrentColor(e.target.value)
-function setCurrentColor(newColor) {
-    currentColor = newColor
-  }
 
 
 
@@ -109,7 +105,13 @@ clear.addEventListener('click', () => {
 })
 
 
-
+colorPicker.addEventListener('input', function (e) {setCurrentColor(e.target.value)
+function setCurrentColor(newColor) {
+    currentColor = newColor
+  }}
+  
+  
+  )
 
 
 
