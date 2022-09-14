@@ -2,12 +2,18 @@
 const container = document.querySelector('.container');
 const btn = document.querySelector('#btn');
 const clear = document.querySelector('#clear');
+const color = document.querySelector('#color');
+const colorPicker = document.getElementById('colorPicker');
+let currentColor = '#00ffff';
 let numberOfSquaresOnOneSide = 16;
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-
+colorPicker.oninput = (e) => setCurrentColor(e.target.value)
+function setCurrentColor(newColor) {
+    currentColor = newColor
+  }
 
 
 
@@ -20,7 +26,6 @@ function getNumberofBoxes() {
 
         numberOfSquaresOnOneSide = value;
 
-    
     }
 
     return numberOfSquaresOnOneSide;
@@ -64,10 +69,13 @@ function createGrid(numberOfSquaresOnOneSide) {
 
 function changeColor(e, squares) {
 
+    
+
+
     if (e.type === 'mouseover' && !mouseDown) return;
     else {
 
-
+        e.target.style.backgroundColor = currentColor;
         squares.classList.add('entered');
     }
 
@@ -78,12 +86,6 @@ function changeColor(e, squares) {
 container.style.gridTemplateColumns = `repeat(${numberOfSquaresOnOneSide},1fr)`;
 
 createGrid(numberOfSquaresOnOneSide);
-
-
-
-
-
-
 
 
 
@@ -105,8 +107,6 @@ clear.addEventListener('click', () => {
     createGrid(numberOfSquaresOnOneSide);
 
 })
-
-
 
 
 
